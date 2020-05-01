@@ -1,4 +1,5 @@
 import React from 'react'
+import CountUp from 'react-countup';
 
 function Cards({ data }) {
   if (!data) {
@@ -7,26 +8,41 @@ function Cards({ data }) {
 
   const { confirmed, deaths, recovered, lastUpdate } = data;
   return (
-    <div>
+    <div className="card-grid">
       <div className="card">
         <h3>Infected</h3>
-        <h2>{confirmed.value}</h2>
+        <CountUp
+          className="count"
+          start={0}
+          end={+confirmed.value}
+          duration={1.25}
+          separator="," />
         <p>{new Date(lastUpdate).toDateString()}</p>
         <p>Number of active cases of COVID-19</p>
       </div>
       <div className="card">
         <h3>Deaths</h3>
-        <h2>{deaths.value}</h2>
+        <CountUp
+          className="count"
+          start={0}
+          end={+deaths.value}
+          duration={1.25}
+          separator="," />
         <p>{new Date(lastUpdate).toDateString()}</p>
-        <p>Number of active cases of COVID-19</p>
+        <p>Current deaths from COVID-19</p>
       </div>
       <div className="card">
         <h3>Recovered</h3>
-        <h2>{recovered.value}</h2>
+        <CountUp
+          className="count"
+          start={0}
+          end={+recovered.value}
+          duration={1.25}
+          separator="," />
         <p>{new Date(lastUpdate).toDateString()}</p>
-        <p>Number of active cases of COVID-19</p>
+        <p>Number of recovered cases of COVID-19</p>
       </div>
-    </div>
+    </div >
   )
 }
 

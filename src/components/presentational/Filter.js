@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Select from 'react-select';
 
-function Filter({ countryList }) {
+function Filter({ countryList, setSingleCountry }) {
   const [value, setValue] = useState(null);
 
   if (!countryList) {
@@ -17,13 +17,16 @@ function Filter({ countryList }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (value) {
+      setSingleCountry(value);
+    }
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <Select onChange={handleChange} defaultInputValue="global" options={options} />
-        <button>Find country</button>
+        <button className="filter-btn">Find country</button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Title, Cards, Filter, Graph } from './components/presentational'
+import { Title, Cards, Filter, Graph, Footer } from './components/presentational'
 import axios from 'axios'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   const [countryList, setCountryList] = useState(null);
   const [singleCountry, setSingleCountry] = useState(null);
 
+  // Get global statistics
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,6 +21,7 @@ function App() {
     fetchData();
   }, [])
 
+  // Fetch all countries included in api to use in filter component
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -33,12 +35,14 @@ function App() {
     fetchCountries()
   }, [])
 
+  // Fetch single country's statistics 
   useEffect(() => {
     if (singleCountry) {
       const fetchSingleCountry = async () => {
         try {
-          const request = await axios.get(`https://covid19.mathdro.id/api/countries/${singleCountry}`);
+          const request = await axios.get(`https://covid19.mathdro.id/api/countries/${singleCountry.value}`);
           const response = request.data;
+          console.log(response);
           setData(response)
         } catch (error) {
           console.log(error);
@@ -50,12 +54,16 @@ function App() {
 
   }, [singleCountry])
 
+
   return (
     <div className="App">
       <Title />
-      <Cards data={data} />
-      <Filter countryList={countryList} />
-      <Graph data={data} />
+      <div className="container">
+        <Cards data={data} />
+        <Filter countryList={countryList} setSingleCountry={setSingleCountry} />
+        <Graph data={data} />
+        <Footer />
+      </div>
     </div>
   );
 }

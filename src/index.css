@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Oswald:wght@300;400;500&display=swap');
+
+:root {
+  --ff-primary: 'Oswald', sans-serif;
+  --ff-secondary: 'Open Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  background-color: #cdbaa9;
+}
+
+.container {
+  padding-top: 10px;
+  max-width: 1200px;
+  width: 95%;
+  margin: auto;
+}
+
+.title-container {
+  width: 100%;
+  position: relative;
+}
+
+img.strip-title {
+  max-width: 100%;
+}
+
+.title {
+  color: #1f1f1f;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 40px;
+  text-shadow: -2px 1px 2px #21212173;
+}
+
+
+.card-grid {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-box-shadow: -1px 2px 6px 0px rgba(122, 122, 122, 1);
+  -moz-box-shadow: -1px 2px 6px 0px rgba(122, 122, 122, 1);
+  box-shadow: -1px 2px 6px 0px rgba(122, 122, 122, 1);
+  background-color: #38787e;
+  color: #e8d7b7;
+  margin-bottom: 10px;
+}
+
+.count {
+  font-family: var(--ff-primary);
+  font-size: 30px;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.filter-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #38787e;
+  color: white;
+}
+
+.footer {
+  height: 150px;
+
+  background-image: url('./assets/flower.png');
+  background-size: contain;
+  background-position: center;
+}
+
+@media screen and (min-width:700px) {
+  .title {
+    font-size: 80px;
+  }
+
+  .card-grid {
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
