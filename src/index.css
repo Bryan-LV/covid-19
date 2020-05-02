@@ -26,6 +26,7 @@ body {
 .title-container {
   width: 100%;
   position: relative;
+  text-align: center;
 }
 
 img.strip-title {
@@ -86,6 +87,7 @@ img.strip-title {
 
   background-image: url('./assets/flower.png');
   background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
 }
 

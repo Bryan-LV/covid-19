@@ -5,6 +5,7 @@ export default function Footer() {
     <div className="">
       <div className="footer"></div>
       <h3 style={{ textAlign: 'center' }}>Illustrations by <a style={{ color: '#651111' }} href="https://www.behance.net/gallery/95488653/Covid-19?tracking_source=search_projects_recommended%7Ccovid">Daniele Andreotti</a></h3>
+      <h3 style={{ textAlign: 'center' }}>Made by <a style={{ color: '#651111' }} href="https://github.com/bryan-lv">Bryan Almaraz</a></h3>
     </div>
   )
 }
